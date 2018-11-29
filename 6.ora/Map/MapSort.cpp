@@ -13,27 +13,15 @@ int main()
     };
 
 
-
-
-
-
-
-
 std::map <std::string, int> :: iterator itr;
 
- std::cout << "\nThe map is : \n";
+ std::cout << "\nA map : \n";
 
-    std::cout << "\tKEY\tELEMENT\n";
 
-    for (itr = map.begin(); itr != map.end(); ++itr)
-
-    {
-
-        std::cout  <<  '\t' << itr->first 
-
-              <<  '\t' << itr->second << '\n';
-
-    }
+ for (auto const &pair: map) {
+        std::cout << '{' << pair.first << "," << pair.second << '}' << '\n';
+	 
+	}
 
     // create a empty vector of pairs
     std::vector<pair> vec;
@@ -43,8 +31,8 @@ std::map <std::string, int> :: iterator itr;
             map.end(),
             std::back_inserter<std::vector<pair>>(vec));
  
-    // sort the vector by increasing order of its pair's second value
-    // if second value are equal, order by the pair's first value
+    // a vector rendezése növekvő sorrendben a párjainak második értéke szerint
+    // ha a második érték egyenlő akkor az első alapján rendezi.
     std::sort(vec.begin(), vec.end(),
             [](const pair& l, const pair& r) {
                 if (l.second != r.second)
@@ -53,12 +41,12 @@ std::map <std::string, int> :: iterator itr;
                 return l.first < r.first;
             });
  
-std::map<std::string, int> OrderedMap;
+	std::map<std::string, int> OrderedMap;
+	std::cout<<"A rendezett map"<<std::endl;
 
-    // print the vector
     for (auto const &pair: vec) {
         std::cout << '{' << pair.first << "," << pair.second << '}' << '\n';
-	OrderedMap.insert( pair) ;   
+	 
 	}
  	
 
